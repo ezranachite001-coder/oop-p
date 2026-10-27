@@ -4,39 +4,39 @@ using namespace std;
 
 int main()
 {
-    string student_name,status;
-    int exam_score, age;
+
+    string student_name;
+    int theory_marks, practical_marks;
 
     cout <<"Enter your name:"<<endl;
     cin >> student_name;
-    cout <<"Enter exam score:"<<endl;
-    cin >> exam_score;
+    cout <<"Enter theory marks:"<<endl;
+    cin >> theory_marks;
+    cout <<"Enter practical marks:"<<endl;
+    cin >> practical_marks;
 
 
-
-
-    if(age >= 18)
+    float average_score = (theory_marks+practical_marks)/2;
+    if(average_score>=50)
     {
-        if(exam_score >= 50)
-        {
-          status = "Admitted";
-        }
-        else
-        {
-          status = "Not admitted: Low score";
-        }
+       cout <<"PASS!"<<endl;
     }
-    if( age < 18)
-      status = "Not admitted: underage";
-
-
+    else
+    {
+      cout <<"FAIL!"<<endl;
+    }
 
     cout <<"==========TEST RESULTS==========="<<endl;
     cout <<"Name: "<<student_name<<endl;
-    cout <<"Exam marks = " <<exam_score<<endl;
-    cout <<status<<endl;
-
-
+    cout <<"Theory marks = " <<theory_marks<<endl;
+    cout <<"Practical marks = "<<practical_marks<<endl;
+    cout <<"Average_score = "<<average_score<<endl;
     cout <<"============================"<<endl;
+
+
+
+
+
+
     return 0;
 }
