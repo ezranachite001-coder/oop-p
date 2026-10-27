@@ -1,35 +1,31 @@
-
 #include <iostream>
+
 using namespace std;
 
 int main()
 {
-    float account_balance = 500;
-    float withdrawal_amount;
+    string employee_name;
+    int basic_salary, bonus,total_salary;
 
-    while (account_balance > 0)
+    for(int i=1;i<=5;i++)
     {
-        cout << "Enter amount you wish to withdraw: ";
-        cin >> withdrawal_amount;
+        cout <<"Enter employee name: ";
+        cin >> employee_name;
 
-        if (withdrawal_amount > account_balance)
-        {
-            cout << "Insufficient balance!" << endl;
-            continue;
-        }
+        cout <<"Enter basic salary: ";
+        cin >> basic_salary;
 
-        if (withdrawal_amount <= 0)
-        {
-            cout << "Enter a valid amount!" << endl;
-            continue;
-        }
+        bonus = 0.05*basic_salary;
+        total_salary = basic_salary + bonus;
+        cout <<"\n=====Employee Report====="<<endl;
+        cout <<"Employee name: "<<employee_name<<endl;
+        cout <<"Basic salary: "<<basic_salary<<endl;
+        cout <<"Bonus: "<<bonus<<endl;
+        cout <<"Total salary: "<<total_salary<<endl;
 
-        account_balance -= withdrawal_amount;
 
-        cout << "Remaining balance: "<< account_balance << endl;
     }
 
-    cout << "Your account balance is zero." << endl;
 
     return 0;
 }
