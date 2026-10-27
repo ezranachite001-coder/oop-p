@@ -1,54 +1,58 @@
-#include <iostream>
 
+#include <iostream>
 using namespace std;
-void getCustomerDetails();
-float calculateBill(float units,float rate);
-float applyDiscount(float bill);
-void displayBill();
+
+void getEmployeeDetails();
+float calculateOvertimePay(float hours, float rate);
+float calculateNetSalary(float basic, float overtime);
+void displayPayslip();
+
+
 string name;
-float units, bill, discount, rate=50,finalAmount;
+float basic, hours, rate = 500, overtime, net;
+
+
 int main()
 {
-    getCustomerDetails();
+    getEmployeeDetails();
 
-    bill = calculateBill(units,rate);
+    overtime = calculateOvertimePay(hours, rate);
 
-    finalAmount = applyDiscount(bill);
+    net = calculateNetSalary(basic, overtime);
 
-    displayBill();
+    displayPayslip();
+
     return 0;
 }
-void getCustomerDetails()
+
+
+void getEmployeeDetails()
 {
-    cout << "Enter customer name: ";
+    cout << "Enter employee name: ";
     cin >> name;
 
-    cout << "Enter units consumed: ";
-    cin >> units;
-}
-float calculateBill(float units, float rate)
-{
-    return units * rate;
-}
-float applyDiscount(float bill)
-{
-    if (units > 100)
-    {
-        discount = bill * 0.10;
-    }
-    else
-    {
-        discount = 0;
-    }
+    cout << "Enter basic salary: ";
+    cin >> basic;
 
-    return bill - discount;
+    cout << "Enter overtime hours: ";
+    cin >> hours;
 }
-void displayBill()
+
+float calculateOvertimePay(float hours, float rate)
 {
-    cout << "\n--- WATER BILL ---" << endl;
-    cout << "Customer Name: " << name << endl;
-    cout << "Units Consumed: " << units << endl;
-    cout << "Total Bill: KSh " << bill << endl;
-    cout << "Discount: KSh " << discount << endl;
-    cout << "Final Amount: KSh " << finalAmount << endl;
+    return hours * rate;
+}
+
+float calculateNetSalary(float basic, float overtime)
+{
+    return basic + overtime;
+}
+
+void displayPayslip()
+{
+    cout << "\n--- PAYSLIP ---" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Basic Salary: " << basic << endl;
+    cout << "Overtime Pay: " << overtime << endl;
+    cout << "Net Salary: " << net << endl;
 }
