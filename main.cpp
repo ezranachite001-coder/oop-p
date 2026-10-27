@@ -1,31 +1,33 @@
-#include <iostream>
 
+#include <iostream>
 using namespace std;
 
 int main()
 {
-    string customer_name, phone_model;
-    int quantity_bought, price,total_sales;
+    int occupancy[5][10];
+    int occupied, vacant;
 
-    cout <<"Enter your name:"<<endl;
-    cin >> customer_name;
-    cout <<"Enter the phone model:"<<endl;
-    cin >> phone_model;
-    cout <<"Enter number of pcs:"<<endl;
-    cin >> quantity_bought;
-    cout <<"Enter price per phone:"<<endl;
-    cin >> price;
+    for (int i = 0; i < 5; i++)
+    {
+        occupied = 0;
+        vacant = 0;
 
-    total_sales = quantity_bought*price;
-    cout <<"==========RECEIPT==========="<<endl;
-    cout <<"Name: "<<customer_name<<endl;
-    cout <<"Model: "<<phone_model<<endl;
-    cout <<"Quantity bought: "<<quantity_bought<<endl;
-    cout <<"Price per phone: "<<price<<endl;z
-    cout <<"Total = "<<total_sales<<endl;
-    cout <<"============================"<<endl;
+        for (int j = 0; j < 10; j++)
+        {
+            cout << "Enter 1 if occupied or 0 if vacant, Floor "
+                 << i + 1 << ", Room " << j + 1 << ": ";
+            cin >> occupancy[i][j];
 
+            if (occupancy[i][j] == 1)
+                occupied++;
+            else
+                vacant++;
+        }
 
+        cout << "Floor " << i + 1 << endl;
+        cout << "Occupied rooms = " << occupied << endl;
+        cout << "Vacant rooms = " << vacant << endl;
+    }
 
     return 0;
 }
