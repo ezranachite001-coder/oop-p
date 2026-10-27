@@ -4,30 +4,26 @@ using namespace std;
 
 int main()
 {
-    int occupancy[5][10];
-    int occupied, vacant;
+    int chain[3][5][10];
+    int totalOccupied = 0;
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 3; i++)
     {
-        occupied = 0;
-        vacant = 0;
-
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; j < 5; j++)
         {
-            cout << "Enter 1 if occupied or 0 if vacant, Floor "
-                 << i + 1 << ", Room " << j + 1 << ": ";
-            cin >> occupancy[i][j];
+            for (int k = 0; k < 10; k++)
+            {
+                cout << "Enter 1 if occupied or 0 if vacant: ";
+                cin >> chain[i][j][k];
 
-            if (occupancy[i][j] == 1)
-                occupied++;
-            else
-                vacant++;
+                if (chain[i][j][k] == 1)
+                    totalOccupied++;
+            }
         }
-
-        cout << "Floor " << i + 1 << endl;
-        cout << "Occupied rooms = " << occupied << endl;
-        cout << "Vacant rooms = " << vacant << endl;
     }
+
+    cout << "Total occupied rooms across all branches = "
+         << totalOccupied << endl;
 
     return 0;
 }
