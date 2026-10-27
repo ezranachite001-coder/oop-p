@@ -1,31 +1,54 @@
 #include <iostream>
 
 using namespace std;
-
+void getCustomerDetails();
+float calculateBill(float units,float rate);
+float applyDiscount(float bill);
+void displayBill();
+string name;
+float units, bill, discount, rate=50,finalAmount;
 int main()
 {
-    string employee_name;
-    int basic_salary, bonus,total_salary;
+    getCustomerDetails();
 
-    for(int i=1;i<=5;i++)
+    bill = calculateBill(units,rate);
+
+    finalAmount = applyDiscount(bill);
+
+    displayBill();
+    return 0;
+}
+void getCustomerDetails()
+{
+    cout << "Enter customer name: ";
+    cin >> name;
+
+    cout << "Enter units consumed: ";
+    cin >> units;
+}
+float calculateBill(float units, float rate)
+{
+    return units * rate;
+}
+float applyDiscount(float bill)
+{
+    if (units > 100)
     {
-        cout <<"Enter employee name: ";
-        cin >> employee_name;
-
-        cout <<"Enter basic salary: ";
-        cin >> basic_salary;
-
-        bonus = 0.05*basic_salary;
-        total_salary = basic_salary + bonus;
-        cout <<"\n=====Employee Report====="<<endl;
-        cout <<"Employee name: "<<employee_name<<endl;
-        cout <<"Basic salary: "<<basic_salary<<endl;
-        cout <<"Bonus: "<<bonus<<endl;
-        cout <<"Total salary: "<<total_salary<<endl;
-
-
+        discount = bill * 0.10;
+    }
+    else
+    {
+        discount = 0;
     }
 
-
-    return 0;
+    return bill - discount;
+}
+void displayBill()
+{
+    cout << "\n--- WATER BILL ---" << endl;
+    cout << "Customer Name: " << name << endl;
+    cout << "Units Consumed: " << units << endl;
+    cout << "Total Bill: KSh " << bill << endl;
+    cout << "Discount: KSh " << discount << endl;
+    cout << "Final Amount: KSh " << finalAmount << endl;
 }
