@@ -4,44 +4,37 @@ using namespace std;
 
 int main()
 {
-    string student_name,Grade;
-    int exam_marks;
+    int a, b;
+    char symbol;
 
-    cout <<"Enter your name:"<<endl;
-    cin >> student_name;
-    cout <<"Enter exam marks:"<<endl;
-    cin >> exam_marks;
+    cout <<"Enter the first number: ";
+    cin >> a;
+    cout <<"Enter the second number: ";
+    cin >> b;
 
-
-
-
-    if(exam_marks >= 70)
+    cout <<"Enter symbol(+,-,/,*): ";
+    cin >> symbol;
+    switch(symbol)
     {
-       Grade = "A";
-    }
-    else if(exam_marks >= 60 && exam_marks <= 69)
-    {
-      Grade = "B";
-    }
-    else if(exam_marks >= 50 && exam_marks <= 59)
-    {
-      Grade = "C";
-    }
-    else if(exam_marks >= 40 && exam_marks <= 49)
-    {
-      Grade = "D";
+      case '+':
+        cout << a + b;
+        break;
 
-    }
-    else
-    {
-      Grade = "E";
-    }
+      case '-':
+        cout << a - b;
+        break;
+       case '/':
+         if (b!=0)
+           cout <<(double) a / b;
+         else
+           cout <<"Cannot divide by 0";
+        break;
+         case '*':
+        cout << a * b;
+        break;
 
-    cout <<"==========TEST RESULTS==========="<<endl;
-    cout <<"Name: "<<student_name<<endl;
-    cout <<"Exam marks = " <<exam_marks<<endl;
-    cout <<"Grade: "<<Grade<<endl;
-
-    cout <<"============================"<<endl;
+        default:
+          cout <<"Invalid Operator!"<<endl;
+    }
     return 0;
 }
