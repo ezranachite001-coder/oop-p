@@ -4,26 +4,20 @@ using namespace std;
 
 int main()
 {
-    int chain[3][5][10];
-    int totalOccupied = 0;
+    float revenue[7], total = 0, average;
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 7; i++)
     {
-        for (int j = 0; j < 5; j++)
-        {
-            for (int k = 0; k < 10; k++)
-            {
-                cout << "Enter 1 if occupied or 0 if vacant: ";
-                cin >> chain[i][j][k];
+        cout << "Enter revenue for day " << i + 1 << ": ";
+        cin >> revenue[i];
 
-                if (chain[i][j][k] == 1)
-                    totalOccupied++;
-            }
-        }
+        total = total + revenue[i];
     }
 
-    cout << "Total occupied rooms across all branches = "
-         << totalOccupied << endl;
+    average = total / 7;
+
+    cout << "Total weekly revenue = " << total << endl;
+    cout << "Average daily revenue = " << average << endl;
 
     return 0;
 }
