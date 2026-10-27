@@ -4,38 +4,32 @@ using namespace std;
 
 int main()
 {
-    string correctUserName = "Ezra", user_name;
-    int correctPassword = 1234, password;
+    float account_balance = 500;
+    float withdrawal_amount;
 
-    do
+    while (account_balance > 0)
     {
-        cout << "Enter username: ";
-        cin >> user_name;
+        cout << "Enter amount you wish to withdraw: ";
+        cin >> withdrawal_amount;
 
-        cout << "Enter password: ";
-        cin >> password;
-
-        if (user_name == correctUserName)
+        if (withdrawal_amount > account_balance)
         {
-            cout << "Enter password: ";
-            cin >> password;
-            if (password == correctPassword)
-            {
-                cout << "Access granted!" << endl;
-            }
-            else
-            {
-                cout << "Incorrect password!" << endl;
-            }
-        }
-        else
-        {
-            cout << "Incorrect username!" << endl;
+            cout << "Insufficient balance!" << endl;
+            continue;
         }
 
+        if (withdrawal_amount <= 0)
+        {
+            cout << "Enter a valid amount!" << endl;
+            continue;
+        }
+
+        account_balance -= withdrawal_amount;
+
+        cout << "Remaining balance: "<< account_balance << endl;
     }
-    while (user_name != correctUserName ||
-           password != correctPassword);
+
+    cout << "Your account balance is zero." << endl;
 
     return 0;
 }
