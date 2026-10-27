@@ -4,37 +4,39 @@ using namespace std;
 
 int main()
 {
-    int a, b;
-    char symbol;
+    string student_name,status;
+    int exam_score, age;
 
-    cout <<"Enter the first number: ";
-    cin >> a;
-    cout <<"Enter the second number: ";
-    cin >> b;
+    cout <<"Enter your name:"<<endl;
+    cin >> student_name;
+    cout <<"Enter exam score:"<<endl;
+    cin >> exam_score;
 
-    cout <<"Enter symbol(+,-,/,*): ";
-    cin >> symbol;
-    switch(symbol)
+
+
+
+    if(age >= 18)
     {
-      case '+':
-        cout << a + b;
-        break;
-
-      case '-':
-        cout << a - b;
-        break;
-       case '/':
-         if (b!=0)
-           cout <<(double) a / b;
-         else
-           cout <<"Cannot divide by 0";
-        break;
-         case '*':
-        cout << a * b;
-        break;
-
-        default:
-          cout <<"Invalid Operator!"<<endl;
+        if(exam_score >= 50)
+        {
+          status = "Admitted";
+        }
+        else
+        {
+          status = "Not admitted: Low score";
+        }
     }
+    if( age < 18)
+      status = "Not admitted: underage";
+
+
+
+    cout <<"==========TEST RESULTS==========="<<endl;
+    cout <<"Name: "<<student_name<<endl;
+    cout <<"Exam marks = " <<exam_score<<endl;
+    cout <<status<<endl;
+
+
+    cout <<"============================"<<endl;
     return 0;
 }
